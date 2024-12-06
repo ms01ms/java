@@ -2,15 +2,16 @@ package com.hillel;
 
 public class Homework8 {
     public static void main(String[] args) {
-       catDog("");
-       centeredAverage(new int[]{});
-       sumIgnoreSections(new int[]{});
-       sumWithoutUnlucky13(new int[]{});
-       differenceLargestSmallest(new int[]{});
-       doubleChars("");
-       countHi("");
-       countCode("");
-       endsWith("", "");
+        catDog("");
+        centeredAverage(new int[]{});
+        sumIgnoreSections(new int[]{});
+        sumWithoutUnlucky13(new int[]{});
+        differenceLargestSmallest(new int[]{});
+        doubleChars("");
+        countHi("");
+        countCode("");
+        endsWith("", "");
+        countEvenInts(new int[]{});
     }
 
     public static boolean catDog(String str) {
@@ -149,6 +150,18 @@ public class Homework8 {
         str2 = str2.toLowerCase();
 
         return str1.endsWith(str2) || str2.endsWith(str1);
+    }
+
+    public static int countEvenInts(int[] nums) {
+        int count = 0;
+
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
 
