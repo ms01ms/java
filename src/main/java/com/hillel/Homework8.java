@@ -137,7 +137,7 @@ public class Homework8 {
         for (int i = 0; i <= str.length() - 4; i++) {
             String substring = str.substring(i, i + 4);
 
-            if (substring.charAt(0) == 'c' && substring.charAt(3) == 'e') {
+            if (substring.charAt(0) == 'c' && substring.charAt(1) == 'o' && substring.charAt(3) == 'e') {
                 count++;
             }
         }
