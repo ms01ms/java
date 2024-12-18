@@ -1,6 +1,6 @@
 package com.hillel;
 
-public class Man extends Person{
+public class Man extends Person {
     public static final String GENDER = "Male";
 
     public Man(String name, int age, PersonRole role) {
