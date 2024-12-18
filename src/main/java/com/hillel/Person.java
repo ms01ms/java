@@ -1,15 +1,15 @@
 package com.hillel;
 
-public class Person {
+public class Person implements Displayable{
 
     private String name;
     private int age;
-    private String profession;
+    private PersonRole role;
 
-    public Person(String name, int age, String profession) {
+    public Person(String name, int age, PersonRole role) {
         this.name = name;
         this.age = age;
-        this.profession = profession;
+        this.role = role;
     }
 
     public String getName() {
@@ -28,17 +28,22 @@ public class Person {
         this.age = age;
     }
 
-    public String getProfession() {
-        return profession;
+    public PersonRole getProfession() {
+        return role;
     }
 
-    public void setProfession(String profession) {
-        this.profession = profession;
+    public void setRole(PersonRole role) {
+        this.role = role;
     }
 
-    public void showPersonInfo() {
+    public void changeProfession(PersonRole newRole) {
+        this.role = newRole;
+    }
+
+    @Override
+    public void displayInformation() {
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
-        System.out.println("Profession: " + profession);
+        System.out.println("Profession: " + role);
     }
 }
