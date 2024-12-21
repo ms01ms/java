@@ -1,6 +1,6 @@
 package com.hillel;
 
-public class Person implements Displayable{
+abstract class Person implements Displayable{
 
     private String name;
     private int age;
@@ -42,8 +42,10 @@ public class Person implements Displayable{
 
     @Override
     public void displayInformation() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Profession: " + role);
+        System.out.print("Name: " + name);
+        System.out.print(" Age: " + age);
+        System.out.print(" Profession: " + role);
     }
+
+    protected abstract void displayInformation(boolean detailed);
 }

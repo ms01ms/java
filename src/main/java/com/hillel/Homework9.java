@@ -14,6 +14,9 @@ public class Homework9 {
         person2.changeProfession(PersonRole.DATA_SCIENTIST);
 
         System.out.println("Updated Information:");
-        person2.displayInformation();
+        person2.displayInformation(true);
+
+        System.out.println("Simplified Information:");
+        person2.displayInformation(false);
     }
 }

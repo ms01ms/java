@@ -10,6 +10,15 @@ public class Man extends Person {
     @Override
     public void displayInformation() {
         super.displayInformation();
-        System.out.println("Gender: " + GENDER);
+        System.out.println(" Gender: " + GENDER);
+    }
+
+    @Override
+    public void displayInformation(boolean detailed) {
+        if (detailed) {
+            displayInformation();
+        } else {
+            System.out.println("Name: " + getName() + ", Gender: " + GENDER);
+        }
     }
 }
