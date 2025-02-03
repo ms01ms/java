@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 import org.testng.Assert;
 import java.time.Duration;
 
-public class TitleValidationAndCarAdditionButtonTest {
+public class GuestLoginFormPageTest {
     private ChromeDriver driver;
     private WebDriverWait wait;
 
