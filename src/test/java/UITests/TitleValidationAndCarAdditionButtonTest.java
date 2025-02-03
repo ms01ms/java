@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 import org.testng.Assert;
 import java.time.Duration;
 
-public class GuestLoginAndAddCarButtonTest {
+public class TitleValidationAndCarAdditionButtonTest {
     private ChromeDriver driver;
     private WebDriverWait wait;
 
@@ -39,7 +39,7 @@ public class GuestLoginAndAddCarButtonTest {
 
         WebElement addCarButton = driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary')]"));
         wait.until(ExpectedConditions.elementToBeClickable(addCarButton));
-        Assert.assertTrue(addCarButton.isEnabled(), "The 'Add car' button is not clickable.");
         addCarButton.click();
+        Assert.assertTrue(addCarButton.isEnabled(), "The 'Add car' button is not clickable.");
     }
 }
