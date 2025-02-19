@@ -1,4 +1,4 @@
-package com.hillel;
+package com.hillel.hw1_22;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

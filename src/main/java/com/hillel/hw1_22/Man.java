@@ -1,9 +1,9 @@
-package com.hillel;
+package com.hillel.hw1_22;
 
-class Woman extends Person {
-    public static final String GENDER = "Female";
+public class Man extends Person {
+    public static final String GENDER = "Male";
 
-    public Woman(String name, int age, PersonRole role) throws InvalidPersonDataException {
+    public Man(String name, int age, PersonRole role) throws InvalidPersonDataException {
         super(name, age, role);
     }
 

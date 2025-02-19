@@ -1,4 +1,4 @@
-package com.hillel;
+package com.hillel.hw1_22;
 
 public class Homework5 {
     public static void main(String[] args) {
