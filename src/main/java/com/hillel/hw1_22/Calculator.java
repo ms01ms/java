@@ -1,4 +1,4 @@
-package com.hillel;
+package com.hillel.hw1_22;
 
 public class Calculator {
     public int add(int a, int b) {

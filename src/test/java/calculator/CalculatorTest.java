@@ -1,7 +1,7 @@
 package calculator;
 import org.testng.annotations.*;
 import org.testng.Assert;
-import com.hillel.Calculator;
+import com.hillel.hw1_22.Calculator;
 
 public class CalculatorTest {
     private Calculator calculator;
