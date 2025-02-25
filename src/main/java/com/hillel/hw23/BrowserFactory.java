@@ -4,7 +4,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class BrowserFactory {
 
@@ -14,7 +18,13 @@ public class BrowserFactory {
         switch (browserName.toLowerCase()) {
             case ("chrome"):
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("profile.default_content_settings.popups", 0);
+                prefs.put("download.default_directory", "/Users/MS/Documents/Hillel/JavaAQA/java/target");
+
+                ChromeOptions options = new ChromeOptions();
+                options.setExperimentalOption("prefs", prefs);
+                driver = new ChromeDriver(options);
                 driver.manage().window().maximize();
                 break;
             case ("firefox"):
@@ -32,5 +42,9 @@ public class BrowserFactory {
 
     public static void quitDriver() {
         driver.quit();
+    }
+
+    public static String getDownloadDir() {
+        return "/Users/MS/Documents/Hillel/JavaAQA/java/target";
     }
 }
