@@ -20,7 +20,7 @@ public class BrowserFactory {
                 WebDriverManager.chromedriver().setup();
                 Map<String, Object> prefs = new HashMap<>();
                 prefs.put("profile.default_content_settings.popups", 0);
-                prefs.put("download.default_directory", "/Users/MS/Documents/Hillel/JavaAQA/java/target");
+                prefs.put("download.default_directory", ConfigReader.getProperty("download.dir"));
 
                 ChromeOptions options = new ChromeOptions();
                 options.setExperimentalOption("prefs", prefs);
@@ -42,9 +42,5 @@ public class BrowserFactory {
 
     public static void quitDriver() {
         driver.quit();
-    }
-
-    public static String getDownloadDir() {
-        return "/Users/MS/Documents/Hillel/JavaAQA/java/target";
     }
 }

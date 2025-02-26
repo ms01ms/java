@@ -1,6 +1,7 @@
 package UITests;
 
 import com.hillel.hw23.BrowserFactory;
+import com.hillel.hw23.ConfigReader;
 import com.hillel.hw23.HomePage;
 import com.hillel.hw23.InstructionsPage;
 import org.testng.Assert;
@@ -33,7 +34,7 @@ public class FileDownloadTest {
                 .isInstructionTabOpen();
         instructionsPage.downloadInstruction();
 
-        File downloadedFilePath = new File(BrowserFactory.getDownloadDir());
+        File downloadedFilePath = new File(ConfigReader.getProperty("download.dir"));
 
         File[] listDownloadedFiles = downloadedFilePath.listFiles();
 

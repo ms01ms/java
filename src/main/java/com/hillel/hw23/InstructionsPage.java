@@ -52,7 +52,7 @@ public class InstructionsPage {
     }
 
     public InstructionsPage downloadInstruction() {
-        driver.findElement(this.instructionDownloadLink);
+        driver.findElement(this.instructionDownloadLink).click();
         return this;
     }
 }
