@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Hillel">
-    <test name="Calculator">
+    <test name="AddCarToGarageTest">
         <classes>
-            <class name="calculator.CalculatorTest"/>
+            <class name="UITests.AddCarToGarageTest"/>
         </classes>
     </test>
 </suite>
