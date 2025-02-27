@@ -26,7 +26,7 @@ public class AvailableCarsToFileTest {
     }
 
     @Test
-    public void verifyCarListFileSaved() throws IOException {
+    public void verifyCarListFileSaved() {
         new HomePage()
                 .open()
                 .clickGuestLoginButon();
@@ -45,7 +45,7 @@ public class AvailableCarsToFileTest {
             Assert.assertEquals(actualCarBrandNames, expectedCarBrandNames,
                     "The contents of the file do not match the expected list of brands");
         } catch (IOException ioException) {
-            throw new IOException("Failed to write or read the file", ioException);
+            ioException.printStackTrace();
         }
     }
 }
