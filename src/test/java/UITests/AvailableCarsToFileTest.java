@@ -1,11 +1,9 @@
 package UITests;
 
-import com.hillel.hw23.BrowserFactory;
-import com.hillel.hw23.HomePage;
-import com.hillel.hw23.InstructionsPage;
+import com.hillel.BaseTest;
+import com.hillel.page_objects.HomePage;
+import com.hillel.page_objects.InstructionsPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -14,16 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class AvailableCarsToFileTest {
-    @BeforeClass
-    public void setUp() {
-        BrowserFactory.createDriver("chrome");
-    }
-
-    @AfterClass
-    public void tearDown() {
-        BrowserFactory.quitDriver();
-    }
+public class AvailableCarsToFileTest extends BaseTest {
 
     @Test
     public void verifyCarListFileSaved() {

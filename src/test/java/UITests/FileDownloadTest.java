@@ -1,27 +1,15 @@
 package UITests;
 
-import com.hillel.hw23.BrowserFactory;
-import com.hillel.hw23.ConfigReader;
-import com.hillel.hw23.HomePage;
-import com.hillel.hw23.InstructionsPage;
+import com.hillel.BaseTest;
+import com.hillel.page_objects.HomePage;
+import com.hillel.page_objects.InstructionsPage;
+import com.hillel.project_config.ConfigReader;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.File;
 
-public class FileDownloadTest {
-
-    @BeforeClass
-    public void setUp() {
-        BrowserFactory.createDriver("chrome");
-    }
-
-    @AfterClass
-    public void tearDown() {
-        BrowserFactory.quitDriver();
-    }
+public class FileDownloadTest extends BaseTest {
 
     @Test
     public void verifyFileDownloadOnInstructionsPage() {

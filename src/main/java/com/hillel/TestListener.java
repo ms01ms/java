@@ -1,4 +1,4 @@
-package com.hillel.hw23;
+package com.hillel;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;

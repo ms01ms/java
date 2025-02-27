@@ -1,4 +1,4 @@
-package com.hillel.hw23;
+package com.hillel.project_config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,8 +10,8 @@ public class ConfigReader {
     static {
         try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties")) {
             properties.load(fileInputStream);
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load configuration file", e);
+        } catch (IOException ioException) {
+            throw new RuntimeException("Failed to load configuration file", ioException);
         }
     }
 

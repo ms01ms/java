@@ -1,5 +1,6 @@
-package com.hillel.hw23;
+package com.hillel.page_objects;
 
+import com.hillel.BrowserFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

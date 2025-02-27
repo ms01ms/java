@@ -1,5 +1,6 @@
-package com.hillel.hw23;
+package com.hillel;
 
+import com.hillel.project_config.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;

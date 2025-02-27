@@ -1,9 +1,11 @@
-package com.hillel.hw23;
+package com.hillel;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.hillel.project_config.ConfigReader;
+import com.hillel.utils.DateUtils;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -20,10 +22,12 @@ public class ExtentReportManager {
     public static ExtentReports getInstance() {
         if (extentReports == null) {
             extentReports = new ExtentReports();
-            ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-report.html");
+            String timestamp = DateUtils.getCurrentDate("yyyyMMdd_HHmmss");
+            String reportPath = ConfigReader.getProperty("report.path") + " " + timestamp;
+            ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportPath);
             extentReports.attachReporter(sparkReporter);
 
-            sparkReporter.config().setReportName("UI Automation Test Report");
+            sparkReporter.config().setReportName("Test Report");
             sparkReporter.config().setDocumentTitle("Test Results");
         }
         return extentReports;
@@ -44,15 +48,15 @@ public class ExtentReportManager {
 
     public static void captureScreenshot(WebDriver driver, String screenshotName) {
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
-        File destinationFile = new File("screenshots/" + screenshotName + ".png");
+        String timestamp = DateUtils.getCurrentDate("yyyyMMdd_HHmmss");
+        String screenshotDir = ConfigReader.getProperty("screenshot.path");
+        File destinationFile = new File(screenshotDir + screenshotName + "_" + timestamp +  ".png");
 
         try {
             FileUtils.copyFile(screenshotFile, destinationFile);
-            extentTest.pass("Screenshot", MediaEntityBuilder.createScreenCaptureFromPath(destinationFile.getAbsolutePath()).build());
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            extentTest.pass("Screenshot", MediaEntityBuilder.createScreenCaptureFromPath("screenshots/" + screenshotName + "_" + timestamp +  ".png").build());
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
     }
 }

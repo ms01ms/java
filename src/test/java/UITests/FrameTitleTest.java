@@ -1,37 +1,25 @@
 package UITests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.hillel.BrowserFactory;
+import com.hillel.BaseTest;
+import com.hillel.page_objects.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class FrameTitleTest {
-    private WebDriver driver;
-
-    @BeforeClass
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("https://guest:welcome2qauto@qauto.forstudy.space/");
-    }
-
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
-    }
+public class FrameTitleTest extends BaseTest {
 
     @Test
     public void verifyFrameTitle() {
-        WebElement iframe = driver.findElement(By.xpath("//iframe[contains(@src, 'youtube.com')]"));
-        driver.switchTo().frame(iframe);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        new HomePage()
+                .open();
+
+        WebElement iframe = BrowserFactory.getDriver().findElement(By.xpath("//iframe[contains(@src, 'youtube.com')]"));
+        BrowserFactory.getDriver().switchTo().frame(iframe);
+        JavascriptExecutor js = (JavascriptExecutor) BrowserFactory.getDriver();
         String iframeTitle = (String) js.executeScript("return document.title;");
         String expectedIframeTitle = "Як потрапити у майбутнє? Трансформація навчання. - YouTube";
 
