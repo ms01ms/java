@@ -21,14 +21,14 @@ import static org.testng.Assert.assertTrue;
 public class AddCarToGarageTest {
 
     private static WebDriverWait wait;
-    private ExtentReports extent;
+    private ExtentReports extentReport;
     private ExtentTest test;
 
     @BeforeClass
     public void setUp() {
         BrowserFactory.createDriver("chrome");
         wait = new WebDriverWait(BrowserFactory.getDriver(), Duration.ofSeconds(10));
-        extent = ExtentReportManager.getInstance();
+        extentReport = ExtentReportManager.getInstance();
     }
 
     @AfterClass
@@ -77,10 +77,10 @@ public class AddCarToGarageTest {
 
             assertTrue(garagePage.getCarlogo().getAttribute("src").endsWith("audi.png"));
             test.pass("Logo source is correct");
-        } catch (AssertionError e) {
-            test.fail("Error: " + e.getMessage());
-            throw e;
+        } catch (Exception exception) {
+            ExtentReportManager.getTest().fail(exception.getMessage());
         }
     }
 }
+
 
