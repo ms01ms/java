@@ -4,6 +4,7 @@ import com.hillel.BaseTest;
 import com.hillel.page_objects.HomePage;
 import com.hillel.page_objects.InstructionsPage;
 import com.hillel.project_config.ConfigReader;
+import com.hillel.waitelement.WaitElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,11 +23,15 @@ public class FileDownloadTest extends BaseTest {
                 .isInstructionTabOpen();
         instructionsPage.downloadInstruction();
 
-        File downloadedFilePath = new File(ConfigReader.getProperty("download.dir"));
 
-        File[] listDownloadedFiles = downloadedFilePath.listFiles();
-
+        String downloadPath = ConfigReader.getProperty("download.dir");
         String expectedFileName = "Front windshield wipers on Audi TT.pdf";
+
+        boolean isFileDownloaded = WaitElement.waitForFileDownload(downloadPath, expectedFileName, 20);
+        Assert.assertTrue(isFileDownloaded, "File " + expectedFileName + " was not downloaded");
+
+        File downloadedFilePath = new File(downloadPath);
+        File[] listDownloadedFiles = downloadedFilePath.listFiles();
 
         boolean downloadedFileName = false;
         if (listDownloadedFiles != null) {
