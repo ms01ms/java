@@ -1,13 +1,14 @@
 package UITests;
 
 import com.hillel.BaseTest;
+import com.hillel.FileManager;
 import com.hillel.page_objects.HomePage;
 import com.hillel.page_objects.InstructionsPage;
+import com.hillel.project_config.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -26,11 +27,14 @@ public class AvailableCarsToFileTest extends BaseTest {
         instructionsPage.clickBrandSelectDropdown();
 
         List<String> expectedCarBrandNames = instructionsPage.getListOfBrandCarName();
-        Path availableCarFile = Paths.get("target/availableCarFile.txt");
+
+        String filePath = ConfigReader.getProperty("outfile.path");
+        Path availableCarFile = Paths.get(filePath);
 
         try {
-            Files.write(availableCarFile, expectedCarBrandNames);
-            List<String> actualCarBrandNames = Files.readAllLines(availableCarFile);
+            FileManager.writeToFile(availableCarFile, expectedCarBrandNames);
+            List<String> actualCarBrandNames = FileManager.readFromFile(availableCarFile);
+
             Assert.assertEquals(actualCarBrandNames, expectedCarBrandNames,
                     "The contents of the file do not match the expected list of brands");
         } catch (IOException ioException) {

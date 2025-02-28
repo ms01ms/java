@@ -1,6 +1,7 @@
 package UITests;
 
 import com.hillel.BaseTest;
+import com.hillel.FileManager;
 import com.hillel.page_objects.HomePage;
 import com.hillel.page_objects.InstructionsPage;
 import com.hillel.project_config.ConfigReader;
@@ -9,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 public class FileDownloadTest extends BaseTest {
 
@@ -26,6 +28,12 @@ public class FileDownloadTest extends BaseTest {
 
         String downloadPath = ConfigReader.getProperty("download.dir");
         String expectedFileName = "Front windshield wipers on Audi TT.pdf";
+
+        try {
+            FileManager.forceDeleteFile(downloadPath, expectedFileName);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
 
         boolean isFileDownloaded = WaitElement.waitForFileDownload(downloadPath, expectedFileName, 20);
         Assert.assertTrue(isFileDownloaded, "File " + expectedFileName + " was not downloaded");

@@ -10,7 +10,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        BrowserFactory.createDriver(ConfigReader.getProperty("browser_name"));
+        BrowserFactory.createDriver(ConfigReader.getProperty("browser.name"));
         extentReport = ExtentReportManager.getInstance();
     }
 
