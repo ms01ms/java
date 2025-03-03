@@ -1,6 +1,7 @@
 package com.hillel.page_objects;
 
 import com.hillel.BrowserFactory;
+import com.hillel.project_config.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,7 +16,7 @@ public class HomePage {
     }
 
     public HomePage open() {
-        driver.get("https://guest:welcome2qauto@qauto.forstudy.space/");
+        driver.get(ConfigReader.getProperty("base.url"));
         return this;
     }
 
