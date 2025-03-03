@@ -1,5 +1,6 @@
 package com.hillel;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.hillel.project_config.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.InvalidArgumentException;
@@ -27,6 +28,7 @@ public class BrowserFactory {
                 options.setExperimentalOption("prefs", prefs);
                 driver = new ChromeDriver(options);
                 driver.manage().window().maximize();
+                WebDriverRunner.setWebDriver(driver);
                 break;
             case ("firefox"):
                 WebDriverManager.firefoxdriver().setup();
