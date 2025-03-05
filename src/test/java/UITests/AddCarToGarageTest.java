@@ -14,7 +14,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 @Listeners(TestListener.class)
-public class AddCarToGarageTest extends BaseTest {
+public class AddCarToGarageTest extends TestSetup {
 
     private ExtentTest test;
 
@@ -28,7 +28,7 @@ public class AddCarToGarageTest extends BaseTest {
 
         new HomePage()
                 .open()
-                .clickGuestLoginButon();
+                .clickGuestLoginButton();
 
         ExtentReportManager.captureScreenshot(BrowserFactory.getDriver(), "test1_screenshot");
 

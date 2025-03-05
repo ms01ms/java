@@ -1,6 +1,6 @@
 package uitests_selenide;
 
-import com.hillel.BaseTest;
+import com.hillel.TestSetup;
 import com.hillel.page_objects_selenide.GaragePage;
 import com.hillel.page_objects_selenide.HomePage;
 import org.testng.annotations.Test;
@@ -9,7 +9,7 @@ import static com.hillel.utils.DateUtils.getCurrentDate;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class AddCarToGarageTest extends BaseTest {
+public class AddCarToGarageTest extends TestSetup {
 
     @Test
     public void verifyCarIsAddedToGarage() {

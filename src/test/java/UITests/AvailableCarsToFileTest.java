@@ -1,6 +1,6 @@
 package UITests;
 
-import com.hillel.BaseTest;
+import com.hillel.TestSetup;
 import com.hillel.FileManager;
 import com.hillel.page_objects.HomePage;
 import com.hillel.page_objects.InstructionsPage;
@@ -13,13 +13,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class AvailableCarsToFileTest extends BaseTest {
+public class AvailableCarsToFileTest extends TestSetup {
 
     @Test
     public void verifyCarListFileSaved() {
         new HomePage()
                 .open()
-                .clickGuestLoginButon();
+                .clickGuestLoginButton();
 
         InstructionsPage instructionsPage = new InstructionsPage();
         instructionsPage.clickInstructionsTab()

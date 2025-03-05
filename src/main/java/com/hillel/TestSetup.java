@@ -5,7 +5,7 @@ import com.hillel.project_config.ConfigReader;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-public class BaseTest {
+public class TestSetup {
     private ExtentReports extentReport;
 
     @BeforeClass

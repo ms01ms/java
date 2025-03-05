@@ -1,6 +1,6 @@
 package UITests;
 
-import com.hillel.BaseTest;
+import com.hillel.TestSetup;
 import com.hillel.FileManager;
 import com.hillel.page_objects.HomePage;
 import com.hillel.page_objects.InstructionsPage;
@@ -12,13 +12,13 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 
-public class FileDownloadTest extends BaseTest {
+public class FileDownloadTest extends TestSetup {
 
     @Test
     public void verifyFileDownloadOnInstructionsPage() {
         new HomePage()
                 .open()
-                .clickGuestLoginButon();
+                .clickGuestLoginButton();
 
         InstructionsPage instructionsPage = new InstructionsPage();
         instructionsPage.clickInstructionsTab()

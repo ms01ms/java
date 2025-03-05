@@ -25,7 +25,7 @@ public class HomePage {
         return this;
     }
 
-    public void clickGuestLoginButon() {
+    public void clickGuestLoginButton() {
         driver.findElement(this.guestLoginButton).click();
     }
 

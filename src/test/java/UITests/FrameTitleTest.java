@@ -1,7 +1,7 @@
 package UITests;
 
 import com.hillel.BrowserFactory;
-import com.hillel.BaseTest;
+import com.hillel.TestSetup;
 import com.hillel.page_objects.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
-public class FrameTitleTest extends BaseTest {
+public class FrameTitleTest extends TestSetup {
 
     @Test
     public void verifyFrameTitle() {
