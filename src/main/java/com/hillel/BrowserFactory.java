@@ -5,9 +5,7 @@ import com.hillel.project_config.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -36,7 +34,7 @@ public class BrowserFactory {
 				}});
 
 				//for local launch
-				driver = new ChromeDriver(options);
+//				driver = new ChromeDriver(options);
 
 				//for remote launch
 				try {
@@ -51,9 +49,14 @@ public class BrowserFactory {
 			case ("firefox"):
 				WebDriverManager.firefoxdriver().setup();
 				FirefoxOptions firefoxOptions = new FirefoxOptions();
+				firefoxOptions.setCapability("browserVersion", "124.0");
+				firefoxOptions.setCapability("selenoid:options", new HashMap<String, Object>() {{
+					put("sessionTimeout", "15m");
+					put("enableVideo", true);
+				}});
 
 				//for local launch
-				driver = new FirefoxDriver();
+//				driver = new FirefoxDriver();
 
 				//for remote launch
 				try {
