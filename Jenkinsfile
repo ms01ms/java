@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh 'mvn clean test'
+                sh 'mvn test -Dselenide.remote=http://selenoid:4444/wd/hub'
             }
         }
     }
