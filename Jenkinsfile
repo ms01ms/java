@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh 'mvn test -Dselenide.remote=http://selenoid:4444/wd/hub'
+                sh 'mvn -Dtest=UITests.AddCarToGarageTest test'
             }
         }
     }
