@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-
+    agent {
+            docker { image 'maven:3.9.9-openjdk-17' }
+        }
     stages {
         stage('Checkout') {
             steps {
