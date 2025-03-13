@@ -17,6 +17,7 @@ public class ConfigReader {
 
 	public static String getProperty(String key) {
 		String systemValue = System.getProperty(key);
+		System.out.println("=== systemValue" + systemValue);
 		return systemValue != null ? systemValue : properties.getProperty(key);
 	}
 }
