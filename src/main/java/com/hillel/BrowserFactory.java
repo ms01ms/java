@@ -38,6 +38,7 @@ public class BrowserFactory {
 
 				//for remote launch
 				try {
+					System.out.println("===remote.url===" + ConfigReader.getProperty("remote.url"));
 					driver = new RemoteWebDriver(new URL(ConfigReader.getProperty("remote.url")), options);
 				} catch (MalformedURLException e) {
 					throw new RuntimeException();
