@@ -5,17 +5,18 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
-    private static final Properties properties = new Properties();
+	private static final Properties properties = new Properties();
 
-    static {
-        try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties")) {
-            properties.load(fileInputStream);
-        } catch (IOException ioException) {
-            throw new RuntimeException("Failed to load configuration file", ioException);
-        }
-    }
+	static {
+		try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties")) {
+			properties.load(fileInputStream);
+		} catch (IOException ioException) {
+			throw new RuntimeException("Failed to load configuration file", ioException);
+		}
+	}
 
-    public static String getProperty(String key) {
-        return properties.getProperty(key);
-    }
+	public static String getProperty(String key) {
+		String systemValue = System.getProperty(key);
+		return systemValue != null ? systemValue : properties.getProperty(key);
+	}
 }
