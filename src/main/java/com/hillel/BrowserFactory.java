@@ -5,12 +5,11 @@ import com.hillel.project_config.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,14 +33,14 @@ public class BrowserFactory {
 				}});
 
 				//for local launch
-//				driver = new ChromeDriver(options);
+				driver = new ChromeDriver(options);
 
 				//for remote launch
-				try {
-					driver = new RemoteWebDriver(new URL(ConfigReader.getProperty("remote.url")), options);
-				} catch (MalformedURLException e) {
-					throw new RuntimeException();
-				}
+//				try {
+//					driver = new RemoteWebDriver(new URL(ConfigReader.getProperty("remote.url")), options);
+//				} catch (MalformedURLException e) {
+//					throw new RuntimeException();
+//				}
 
 				driver.manage().window().maximize();
 				WebDriverRunner.setWebDriver(driver);
@@ -56,14 +55,14 @@ public class BrowserFactory {
 				}});
 
 				//for local launch
-//				driver = new FirefoxDriver();
+				driver = new FirefoxDriver();
 
 				//for remote launch
-				try {
-					driver = new RemoteWebDriver(new URL(ConfigReader.getProperty("remote.url")), firefoxOptions);
-				} catch (MalformedURLException e) {
-					throw new RuntimeException();
-				}
+//				try {
+//					driver = new RemoteWebDriver(new URL(ConfigReader.getProperty("remote.url")), firefoxOptions);
+//				} catch (MalformedURLException e) {
+//					throw new RuntimeException();
+//				}
 
 				break;
 			default:
